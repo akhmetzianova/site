@@ -1,0 +1,29 @@
+---
+import AgeBadge from '@/components/AgeBadge.astro';
+---
+
+<footer id="responsible" class="mt-6 bg-panel py-6" aria-labelledby="responsible-title">
+  <div class="site-container">
+    <div
+      class:list={[
+        'responsible-inner grid grid-cols-1 items-center justify-items-center gap-4',
+        'sm:grid-cols-[88px_minmax(0,1fr)] sm:justify-items-start',
+        'sm:mx-auto sm:w-fit sm:gap-6',
+      ]}
+    >
+      <AgeBadge />
+      <div class="text-center sm:pr-4 sm:text-left">
+        <h2 id="responsible-title" class="mb-2 text-lg leading-[1.05] sm:text-xl">
+          Ответственная игра
+        </h2>
+        <p class="text-sm leading-[1.55] text-muted">
+          Азартные игры могут вызвать зависимость и привести к потере денег. Играйте ответственно:
+          заранее устанавливайте ограничения по времени и расходам, не используйте заёмные средства
+          и не пытайтесь отыграть проигрыш. Если игра становится причиной тревоги, финансовых
+          трудностей или конфликтов с близкими, сделайте паузу и обратитесь за профессиональной
+          помощью. Участие в азартных играх разрешено только лицам старше 18 лет.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,48 @@
+- name: JetTon
+  slug: jetton
+  refs:
+    - title: MiniApp
+      url: 'https://t.me/ridge731bot/dapp?startapp=ciH5q6nxmr7'
+    - title: Сайт
+      url: 'https://jetqzbxwknprr.com/ciH5q6nxmr7?click_id={click_id}&target_id=games/a53c8fd1-72da-4cd7-ac19-25c8526a2dfa&target_type=game'
+  description: JetTon — онлайн-платформа со слотами, live-казино, ставками на спорт и киберспорт. Погрузитесь в захватывающие игры.
+  logo: /images/jetton.svg
+  logoBackground: '#0b0c0d'
+  payments: [Bitcoin, Ethereum, USDT, GRAM, СБП, Т-Банк, SberPay]
+  categories: [Слоты, Live-казино, Ставки, Киберспорт]
+
+- name: 1win
+  slug: 1win
+  ref: 'https://r1wagwk.com/?open=register&p=t52f'
+  description: 1win — онлайн-казино и букмекер с каталогом из 15 000+ игр, ставками на спорт и круглосуточной поддержкой.
+  logo: /images/1win.svg
+  logoBackground: '#415368'
+  payments: []
+  categories: [Онлайн-казино, Ставки]
+
+- name: Mellstroy
+  slug: mellstroy
+  ref: 'https://mell0635.life/?p=z2o6'
+  description: Mellstroy — онлайн-казино и ставки на спорт, тысячи игр, криптоплатежи и круглосуточная поддержка.
+  logo: /images/mellstroy.svg
+  logoBackground: '#180037'
+  payments: []
+  categories: [Слоты, Live-казино, Ставки]
+
+- name: Bulldrop
+  slug: bulldrop
+  ref: 'https://click.bull.top/mlotamZq?landing=1'
+  description: Bulldrop — кейсы для CS2, Standoff 2, PUBG, Genshin Impact и Roblox. Скины, золото и UC, а также мини-игры «Краш», «Сапёр» и «Колесо».
+  logo: /images/bulldrop.svg
+  logoBackground: '#161718'
+  payments: []
+  categories: [Скины, Кейсы, Мини-игры]
+
+- name: MELBET
+  slug: melbet
+  ref: 'https://refpa3665.com/L?tag=d_6332264m_2170c_&site=6332264&ad=2170'
+  description: MELBET — ставки на спорт и киберспорт, слоты, рулетка и live-казино с живыми дилерами. На площадке доступны прямые трансляции спортивных событий.
+  logo: /images/melbet.svg
+  logoBackground: '#1b1b1b'
+  payments: []
+  categories: [Слоты, Live-казино, Ставки, Киберспорт]

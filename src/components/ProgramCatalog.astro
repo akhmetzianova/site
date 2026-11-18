@@ -1,0 +1,22 @@
+---
+import ProgramCard from '@/components/ProgramCard.astro';
+import type { Program } from '@/types/program';
+
+interface Props {
+  programs: Program[];
+}
+
+const { programs } = Astro.props;
+---
+
+<section id="catalog" class="site-container" aria-labelledby="catalog-title">
+  {programs.length > 0 ? (
+    <div class="grid grid-cols-[minmax(0,1fr)] gap-6">
+      {programs.map((program, index) => (
+        <ProgramCard program={program} rank={index + 1} priority={index === 0} />
+      ))}
+    </div>
+  ) : (
+    <p class="py-10 text-muted">Каталог пока пуст. Программы появятся здесь после обновления.</p>
+  )}
+</section>

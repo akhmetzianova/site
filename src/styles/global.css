@@ -1,0 +1,147 @@
+@import 'tailwindcss';
+@import './theme.css';
+
+@layer base {
+  html {
+    overflow-x: clip;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    scrollbar-color: var(--color-muted) var(--color-page);
+  }
+
+  body {
+    @apply bg-page font-sans text-base text-main antialiased;
+    overflow-x: clip;
+    line-height: 1.55;
+    font-synthesis: none;
+    caret-color: var(--color-action);
+  }
+
+  h1,
+  h2,
+  h3 {
+    min-width: 0;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    overflow-wrap: break-word;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.16em;
+    transition: color 120ms var(--ease-out);
+  }
+
+  a:hover {
+    color: var(--color-secondary);
+  }
+
+  a:active {
+    color: var(--color-muted);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-action) 35%, transparent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility site-container {
+  @apply mx-auto w-full max-w-[78rem] px-4 sm:px-6 lg:px-10;
+}
+
+/* Decoration only. Layout and responsive styles live beside the component markup. */
+@layer components {
+  .header-card {
+    background: linear-gradient(110deg, var(--color-header), var(--color-header-end));
+  }
+
+  .header-card::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -100px;
+    right: -48px;
+    width: 280px;
+    aspect-ratio: 1;
+    border: 38px solid var(--color-header-rule);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .rank-bookmark {
+    position: absolute;
+    z-index: 20;
+    top: -7px;
+    right: 16px;
+    display: grid;
+    place-items: center;
+    min-width: 36px;
+    height: 46px;
+    padding: 0 8px 8px;
+    background: var(--color-rank);
+    color: var(--color-rank-ink);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%);
+    pointer-events: none;
+  }
+
+  .rank-bookmark-top {
+    background: var(--color-rank-top);
+    color: var(--color-rank-top-ink);
+  }
+
+  @variant sm {
+    .rank-bookmark {
+      right: 20%;
+      min-width: 40px;
+      height: 50px;
+      font-size: 20px;
+    }
+  }
+
+  /* Explicit non-negative layers keep SVG opacity independent of card content. */
+  .casino-pattern::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    background: url('/images/casino-pattern.svg?v=4') repeat;
+    background-size: 144px 90px;
+    opacity: var(--casino-pattern-opacity);
+    pointer-events: none;
+  }
+
+  @variant max-sm {
+    .header-card::after {
+      top: -120px;
+      right: -160px;
+    }
+  }
+}

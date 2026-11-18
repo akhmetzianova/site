@@ -1,0 +1,74 @@
+---
+import PlayButton from '@/components/PlayButton.astro';
+import ProgramMedia from '@/components/ProgramMedia.astro';
+import type { Program } from '@/types/program';
+
+interface Props {
+  program: Program;
+  rank: number;
+  priority?: boolean;
+}
+
+const { program, rank, priority = false } = Astro.props;
+const singleRef = program.refs.length === 1 ? program.refs[0] : undefined;
+const Card = singleRef ? 'a' : 'div';
+---
+
+<Card
+  class="program-ranked relative block no-underline focus-visible:outline-offset-4"
+  href={singleRef?.go}
+  target={singleRef ? '_blank' : undefined}
+  rel={singleRef ? 'nofollow' : undefined}
+  aria-label={singleRef ? `${singleRef.title} — ${program.name}` : undefined}
+>
+  <span
+    class:list={[
+      'rank-bookmark max-sm:top-39 max-sm:h-10 max-sm:min-w-8 max-sm:text-base max-sm:leading-none',
+      { 'rank-bookmark-top': rank <= 3 },
+    ]}
+    aria-label={`Место в списке: ${rank}`}
+  >
+    {rank}
+  </span>
+  <article
+    class:list={[
+      'program casino-pattern relative isolate grid overflow-clip rounded-card bg-panel text-main',
+      'grid-cols-1 sm:grid-cols-[176px_minmax(0,1fr)_auto]',
+      'lg:grid-cols-[224px_minmax(0,1fr)_auto] *:relative *:z-10',
+    ]}
+  >
+    <ProgramMedia program={program} priority={priority} />
+
+    <div class="program-body min-w-0 self-center p-4 sm:p-6 lg:pl-10">
+      <h2 class="pr-12 text-[25px] leading-[1.05] sm:pr-16 sm:text-[30px]">{program.name}</h2>
+      {program.categories.length > 0 && (
+        <ul
+          class="mt-2 mb-3 flex flex-wrap gap-3 text-sm leading-[1.55] text-secondary sm:mb-4"
+          aria-label="Категории"
+        >
+          {program.categories.map((category) => (
+            <li>{category}</li>
+          ))}
+        </ul>
+      )}
+      <p class="max-w-[65ch] text-sm leading-[1.6] text-copy sm:text-base sm:leading-[1.65]">
+        {program.description}
+      </p>
+    </div>
+
+    <div
+      class:list={[
+        'program-action flex flex-col items-center justify-end gap-2 px-4 pb-4',
+        'sm:col-start-auto sm:justify-center sm:py-0 sm:pl-0 lg:pr-6',
+      ]}
+    >
+      {program.refs.map((ref) => (
+        <PlayButton
+          href={singleRef ? undefined : ref.go}
+          title={ref.title}
+          programName={program.name}
+        />
+      ))}
+    </div>
+  </article>
+</Card>

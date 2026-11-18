@@ -1,0 +1,39 @@
+---
+import { programs } from '@/data/programs';
+interface Props {
+  name: string;
+  url: string;
+}
+
+export function getStaticPaths() {
+  return programs.flatMap((program) =>
+    program.refs.map((ref) => ({
+      params: { slug: ref.slug },
+      props: { name: program.name, url: ref.url },
+    })),
+  );
+}
+
+const { name, url } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer" />
+    <meta http-equiv="refresh" content={`0;url=${url}`} />
+    <title set:text={`Переход в ${name}`} />
+  </head>
+  <body>
+    <p>
+      Открываем сайт партнёра. Если переход не произошёл,{' '}
+      <a href={url} rel="sponsored nofollow noopener noreferrer">
+        продолжите вручную
+      </a>
+      .
+    </p>
+  </body>
+</html>

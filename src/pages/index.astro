@@ -1,0 +1,18 @@
+---
+import CatalogHeader from '@/components/CatalogHeader.astro';
+import ProgramCatalog from '@/components/ProgramCatalog.astro';
+import ResponsibleGaming from '@/components/ResponsibleGaming.astro';
+import { programs } from '@/data/programs';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getEdition, getEditionTitle } from '@/lib/edition.mjs';
+
+const edition = getEdition();
+---
+
+<BaseLayout title={getEditionTitle(edition)}>
+  <CatalogHeader edition={edition} />
+  <main id="main">
+    <ProgramCatalog programs={programs} />
+  </main>
+  <ResponsibleGaming />
+</BaseLayout>

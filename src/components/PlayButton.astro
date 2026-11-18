@@ -1,0 +1,26 @@
+---
+interface Props {
+  href?: string;
+  title?: string;
+  programName?: string;
+}
+
+const { href, title = 'Играть', programName } = Astro.props;
+const Tag = href ? 'a' : 'span';
+---
+
+<Tag
+  href={href}
+  target={href ? '_blank' : undefined}
+  rel={href ? 'nofollow' : undefined}
+  aria-label={href ? `${title} — ${programName}` : undefined}
+  class:list={[
+    'button inline-flex items-center justify-center whitespace-nowrap no-underline',
+    'min-h-12 w-full px-6 sm:min-h-[50px] sm:w-auto sm:min-w-28 lg:min-w-36',
+    'rounded-control bg-action text-base leading-[1.55] font-semibold text-action-ink',
+    'transition-colors duration-[220ms] ease-out',
+    'hover:bg-action-hover hover:text-action-ink active:bg-action-hover active:text-action-ink',
+  ]}
+>
+  {title}
+</Tag>

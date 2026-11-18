@@ -1,0 +1,49 @@
+---
+import type { Program } from '@/types/program';
+
+interface Props {
+  program: Program;
+  priority?: boolean;
+}
+
+const { program, priority = false } = Astro.props;
+const loading = priority ? 'eager' : 'lazy';
+---
+
+<div
+  class="program-media relative isolate h-40 self-stretch bg-brand-panel after:pointer-events-none after:absolute after:inset-0 after:z-20 after:rounded-t-card after:border-4 after:border-panel after:content-[''] sm:h-auto sm:after:rounded-tr-none sm:after:rounded-bl-card"
+  style={{ backgroundColor: program.logoBackground ?? undefined }}
+>
+  {program.image && (
+    <img
+      class="absolute inset-0 z-0 size-full object-cover"
+      src={program.image}
+      alt={program.imageAlt}
+      width="1200"
+      height="750"
+      loading={loading}
+    />
+  )}
+  {program.logo ? (
+    <img
+      class:list={[
+        'absolute z-10 object-contain',
+        program.image
+          ? 'bottom-3 left-3 size-16 sm:bottom-4 sm:left-4 sm:size-18'
+          : 'inset-0 mx-auto size-full max-w-64 sm:max-w-none',
+      ]}
+      src={program.logo}
+      alt={program.image ? program.name : ''}
+      width="176"
+      height="176"
+      loading={loading}
+    />
+  ) : (
+    <span
+      class="absolute inset-0 z-10 grid place-items-center text-5xl font-semibold sm:text-[80px]"
+      aria-hidden="true"
+    >
+      {program.name.charAt(0)}
+    </span>
+  )}
+</div>

@@ -1,10 +1,10 @@
 - name: JetTon
   slug: jetton
   refs:
-    - title: MiniApp
-      url: 'https://t.me/ridge731bot/dapp?startapp=ciH5q6nxmr7'
     - title: Сайт
       url: 'https://jetqzbxwknprr.com/ciH5q6nxmr7?click_id={click_id}&target_id=games/a53c8fd1-72da-4cd7-ac19-25c8526a2dfa&target_type=game'
+    - title: MiniApp
+      url: 'https://t.me/ridge731bot/dapp?startapp=ciH5q6nxmr7'
   description: JetTon — онлайн-платформа со слотами, live-казино, ставками на спорт и киберспорт. Погрузитесь в захватывающие игры.
   logo: /images/jetton.svg
   logoBackground: '#0b0c0d'
